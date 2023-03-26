@@ -6,6 +6,7 @@ const oscore = document.querySelector("#oscore");
 let turn = "x";
 let x = 0;
 let o = 0;
+let winningElements = [];
 
 box.forEach((e) => {
   e.onclick = () => {
@@ -35,13 +36,19 @@ function winner() {
       box[e[[1]]].innerText == box[e[2]].innerText &&
       box[e[0]].innerText
     ) {
-      alert(box[e[0]].innerText + " won!");
-      
+      setTimeout(() => {
+        swal({
+            title: "Game Over!",
+            text: "Congratulations Player " + box[e[0]].innerText + " won!" ,
+            icon: "success",
+          });
+      }, 1000);
       box[e[0]].classList.add("win");
       box[e[1]].classList.add("win");
       box[e[2]].classList.add("win");
+      winningElements = [box[e[0]], box[e[1]], box[e[2]]];
       box[e[0]].innerText == "x" ? x++ : o++;
-    //   reset();
+      //   reset();
     }
     xscore.innerText = x;
     oscore.innerText = o;
@@ -51,6 +58,7 @@ function winner() {
 resetBtn.onclick = () => reset();
 function reset() {
   box.forEach((e) => (e.innerText = ""));
+  winningElements.forEach((el) => el.classList.remove("win"));
   turn = "x";
   setTimeout(() => {
     xscore.innerText = x;

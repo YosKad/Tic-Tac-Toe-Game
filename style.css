@@ -9,7 +9,21 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Rubik', sans-serif;
+}
+
+.header {
+    width: 40%;
+    height: 10vh;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(23, 23, 191) 35%, rgba(0,212,255,1) 100%);
+    border-radius: 20px;
+    box-shadow: 6px 2px 2px rgb(0, 136, 255);
+}
+
+.header h1 {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
 }
 
 /* .tic-tac-toe {
@@ -30,12 +44,12 @@ body {
   padding: 8px 20px;
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 4px solid salmon;
+  border-bottom: 4px solid rgba(0,212,255,1);
 }
 
 .x span:first-child,
 .o span:first-child {
-  color: salmon;
+  color: rgb(23, 23, 191);
   font-size: 20px;
   font-weight: 600;
 }
@@ -63,22 +77,73 @@ body {
   border: none;
   outline: none;
   padding: 10px 16px;
-  background: salmon;
-  border-radius: 3px;
+  background: rgba(0,212,255,1);
+  border-radius: 8px;
 }
 
 .box.win {
-    position: relative;
-  }
-  
-  .box.win::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: rotate(90deg);
-    background-color: red;
-    opacity: 0.5;
-  }
+  position: relative;
+}
+
+.box.win::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg);
+  background-color: rgb(0, 98, 255);
+  opacity: 0.5;
+}
+
+.line {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  background-color: black;
+  width: 8px;
+  height: var(--length);
+  transform: translate(-50%, -50%) rotate(var(--angle));
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: -4px;
+  width: 16px;
+  height: 2px;
+  background-color: black;
+}
+
+.line::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: -4px;
+  width: 16px;
+  height: 2px;
+  background-color: black;
+  transform: rotate(90deg);
+}
+
+.line:nth-of-type(1) {
+  --length: 100px;
+  --angle: 0deg;
+}
+
+.line:nth-of-type(2) {
+  --length: 100px;
+  --angle: 45deg;
+}
+
+.line:nth-of-type(3) {
+  --length: 140px;
+  --angle: 90deg;
+}
+
+.line:nth-of-type(4) {
+  --length: 100px;
+  --angle: 135deg;
+}
