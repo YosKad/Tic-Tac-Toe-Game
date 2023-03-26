@@ -39,8 +39,9 @@ function winner() {
       setTimeout(() => {
         swal({
             title: "Game Over!",
-            text: "Congratulations Player " + box[e[0]].innerText + " won!" ,
+            text: "Congratulations Player " + box[e[0]].innerText + " You are the winner!" ,
             icon: "success",
+            color: "blue",
           });
       }, 1000);
       box[e[0]].classList.add("win");
