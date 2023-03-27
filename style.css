@@ -13,17 +13,20 @@ body {
 }
 
 .header {
-    width: 40%;
-    height: 8vh;
+    width: fit-content;
+    height: fit-content;
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(23, 23, 191) 35%, rgba(0,212,255,1) 100%);
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* box-shadow: 6px 2px 2px rgb(0, 136, 255); */
 }
 
 .header h1 {
     padding: 10px;
-    text-align: center;
     color: #fff;
+    text-align: center;
 }
 
 /* .tic-tac-toe {
@@ -32,10 +35,7 @@ body {
 
 .score {
   gap: 40px;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 40px auto;
   display: flex;
   justify-content: center;
 }
